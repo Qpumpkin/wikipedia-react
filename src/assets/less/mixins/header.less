@@ -1,8 +1,10 @@
 .header {
-  background: @fill-base;
+  background: @fill-background;
   .header-container {
+    width: calc(100% - 20px);
     padding: 10px 10px 15px;
-    box-shadow: 0 3px 5px #ccc;
+    box-shadow: 0 0 10px rgba(1,1,1,0.2);
+    background: @fill-base;
     .top-navbar {
       margin: 0 auto 10px;
       display: flex;
@@ -10,6 +12,7 @@
       align-items: center;
       &>i {
         font-size: 22px;
+        cursor: pointer;
       }
     }
     .search-bar {
@@ -31,6 +34,13 @@
       }
       i {
         font-size: 20 * @hd;
+        &.icon-guanbi {
+          cursor: pointer;
+        }
+        &.icon-loading {
+          font-size: 16px;
+          margin-right: 7px;
+        }
       }
     }
   }

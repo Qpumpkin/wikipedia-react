@@ -10,7 +10,6 @@ body {
   padding: 0;
   font-size: 16 * @hd;
   color: @text-deeper;
-  background: @fill-background;
 }
 
 ul {
@@ -25,8 +24,16 @@ a {
   color: inherit;
 }
 
-i {
-  cursor: pointer;
+.icon-loading {
+  @keyframes rotate {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  animation: 1s linear rotate infinite;
 }
 
 .pull-left {

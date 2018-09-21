@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 import Home from '@/views/home'
-import Search from '@/views/search'
+import Wiki from '@/views/wiki'
 
 class App extends Component {
   render() {
     return (
-      <div className="app">
+      <Switch>
         <Route exact path="/" component={Home}></Route>
-        <Route path="/search" component={Search}></Route>
-      </div>
+        <Route path="/wiki/:title" component={Wiki}></Route>
+        <Redirect to="/"></Redirect>
+      </Switch>
     );
   }
 }

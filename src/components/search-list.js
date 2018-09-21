@@ -1,33 +1,45 @@
 import React, { Component } from 'react'
-
-// import { json } from '@/assets/utils/mock'
+import { Link } from 'react-router-dom'
 
 class SearchList extends Component {
   shouldComponentUpdate(nextProps) {
-    if (nextProps.results === this.props.results) return false
-    else return true
+    if (nextProps.results !== this.props.results || nextProps.show !== this.props.show) return true
+    else return false
+  }
+
+  closeList = () => {
+    this.props.onSearchListClose()
   }
 
   render() {
+    if (!this.props.show) return null
+
     const { results } = this.props;
-    // const pages = json.query.pages
     const lists = Object.values(results).sort((a, b) => a.index - b.index)
     console.log(lists)
+
     const listItem = lists.map((list, index) => {
       const src = list.thumbnail && list.thumbnail.source
       const divStyle = { 'backgroundImage': `url(${src})` }
       const Thumbnail = src ? <div style={divStyle}></div> : null
+      const encodeTitle = encodeURIComponent(list.title)
       return (
         <li key={index}>
-          <div>{list.title}</div>
-          {Thumbnail}
+          <Link to={`/wiki/${encodeTitle}`} onClick={this.closeList}>
+            <div>{list.title}</div>
+            {Thumbnail}
+          </Link>
         </li>
       )
     })
+
     return (
-      <ul className="search-list">
-        {listItem}
-      </ul>
+      <div className="search-list">
+        <ul>
+          {listItem}
+        </ul>
+        <div className="mask" onClick={this.closeList}></div>
+      </div>
     )
   }
 }
