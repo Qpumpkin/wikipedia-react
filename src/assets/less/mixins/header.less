@@ -1,0 +1,37 @@
+.header {
+  background: @fill-base;
+  .header-container {
+    padding: 10px 10px 15px;
+    box-shadow: 0 3px 5px #ccc;
+    .top-navbar {
+      margin: 0 auto 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &>i {
+        font-size: 22px;
+      }
+    }
+    .search-bar {
+      height: 36 * @hd;
+      margin: 0 auto;
+      padding: 0 5px;
+      background: @fill-background;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      input {
+        font-size: 18px;
+        width: 50px;
+        padding-left: 3px;
+        border: none;
+        background: @fill-background;
+        outline: none;
+        flex-grow: 1;
+      }
+      i {
+        font-size: 20 * @hd;
+      }
+    }
+  }
+}
