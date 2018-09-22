@@ -10,7 +10,6 @@ class Sidebar extends Component {
     if (!this.props.show) return null
     return (
       <div className="sidebar">
-        <div className="mask" onClick={this.handleClose}></div>
         <ul>
           <li>
             <Link to='/'>
@@ -27,7 +26,7 @@ class Sidebar extends Component {
           <li>
             <Link to='/'>
               <i className="iconfont icon-guanbi"></i>
-              收藏
+              书签
             </Link>
           </li>
           <li>
@@ -43,6 +42,7 @@ class Sidebar extends Component {
             </Link>
           </li>
         </ul>
+        <div className="mask" onClick={this.handleClose}></div>
       </div>
     )
   }

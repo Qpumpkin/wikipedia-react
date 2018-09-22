@@ -12,16 +12,50 @@
     max-width: 993px;
     margin: 0 auto;
     padding: 0 15px;
-    h1, h2, h3 {
-      font-family: 'Linux Libertine','Georgia','Times',serif;
+    h1, h2 {
       border-bottom: 1px solid #ddd;
       padding-bottom: 10px;
+      font-weight: 300;
+      font-family: 'Linux Libertine','Georgia','Times',serif;    
+    }
+    h3 {
+      font-family: 'Helvetica Neue', 'Helvetica', 'Nimbus Sans L', 'Arial', 'Liberation Sans', sans-serif;
     }
     a {
       color: #3366cc;
       &:hover {
         text-decoration: underline;
       }
+      &.new {
+        color: #dd3333;
+      }
+    }
+    img {
+      max-width: 100%;
+      // min-width: 20px;
+      height: auto;
+    }
+    ul {
+      list-style: square outside;
+      padding-left: 1em;
+      margin: 10px 0;
+    }
+    li {
+      padding-bottom: 10px;
+    }
+    ol {
+      padding: 0;
+      list-style: decimal inside;
+    }
+    dt {
+      font-weight: bold;
+    }
+    dd {
+      margin: 0;
+    }
+    .citation {
+      word-wrap: break-word;
+      font-style: normal;
     }
     div {
       margin: 8px 0;
@@ -32,12 +66,34 @@
     }
     table {
       border-collapse: collapse;
-      background: #f8f9fa;
-      border: 1px solid #ddd;
+      overflow: auto;
+      overflow-y: hidden;
+      overflow-x: auto;
+
+      &.metadata {
+        display: none;
+      }
+
+      &.wikitable {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        th {
+          border: 1px solid #bbb;
+          padding: 5px;
+          background: #eaecf0;
+        }
+        td {
+          border: 1px solid #bbb;
+          padding: 5px;
+          font-size: 15px;
+        }
+      }
+
       &.infobox {
-        width: 100%;
         text-align: left;
-        margin: 0 auto;
+        margin: 0 auto 12px;
+        background: #f8f9fa;
+        border: 1px solid #ddd;
         th, tr, td {
           padding: 7px 10px;
         }
@@ -51,6 +107,29 @@
           text-align: center;
         }
       }
+
+      @media (max-width: 720px) {
+        display: block;
+        width: 100% !important;
+      }
+
+      @media (min-width: 720px) {
+        &.infobox {
+          float: right;
+          clear: right;
+          width: 100%;
+          max-width: 320px;
+          margin-left: 35px;
+          box-shadow: -35px 0 1px white;
+        }
+      }
+    }
+    .thumb {
+      float: right;
+      clear: right;
+    }
+    .thumb.tright {
+      margin-left: 20px;
     }
     .thumbinner {
       margin: 0 auto;
@@ -60,20 +139,9 @@
       font-size: 0.8em;
       padding: 5px 7px;
     }
-    table.metadata {
-      display: none;
-    }
-    @media (min-width: 720px) {
-      table.infobox {
-        float: right;
-        max-width: 300px;
-        margin-left: 35px;
-        box-shadow: -35px 0 1px white;
-      }
-      .thumb {
-        float: right;
-        clear: right;
-      }
+    .description, .thumbcaption {
+      font-size: 0.8em;
+      color: #333;
     }
   }
 }

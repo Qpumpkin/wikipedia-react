@@ -40,7 +40,7 @@ class Wiki extends Component {
       const header = (cur.line && cur.level) ? `<h${cur.level}>${cur.line}</h${cur.level}>` : ''
       const section = header + cur.text
       return acc + section
-    }, `<h1>${page.displaytitle}</h1>`)
+    }, `<h1>${page.displaytitle}</h1><p class="description">${page.description}</p>`)
   }
 
   render() {
