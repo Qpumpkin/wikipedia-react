@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class Sidebar extends Component {
-  handleClose = () => {
-    this.props.onSidebarClose()
+  handleClose = e => {
+    const nodeName = e.target.nodeName
+    if (nodeName === 'A' || nodeName === 'DIV') {
+      this.props.onSidebarClose()
+    }
   }
 
   render() {
-    if (!this.props.show) return null
+    const className = this.props.show ? "sidebar show" : "sidebar"
     return (
-      <div className="sidebar">
+      <div className={className} onClick={this.handleClose}>
         <ul>
           <li>
             <Link to='/'>
@@ -42,7 +45,7 @@ class Sidebar extends Component {
             </Link>
           </li>
         </ul>
-        <div className="mask" onClick={this.handleClose}></div>
+        <div className="mask"></div>
       </div>
     )
   }

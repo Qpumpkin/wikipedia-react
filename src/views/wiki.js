@@ -16,16 +16,11 @@ class Wiki extends Component {
     this.renderPage(this.props)
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.renderPage(nextProps)
-  }
-
   renderPage = props => {
     const title = props.match.params.title
     this.setState({ isLoading: true })
     wikiFetch(title, 'content')
       .then(res => {
-        console.log(res.mobileview)
         this.setState({
           page: res.mobileview,
           isLoading: false
@@ -44,6 +39,7 @@ class Wiki extends Component {
   }
 
   render() {
+    console.log('wiki render')
     const Article = this.state.isLoading ? 
       <div className="loading"><i className="iconfont icon-loading"></i></div> :
       <article className="article" dangerouslySetInnerHTML={{ __html: this.pageHTML }} />

@@ -6,9 +6,16 @@
   left: 0;
   z-index: 1;
   display: flex;
+  transition: transform 0.3s ease-out;
+  transform: translateX(-100%);
+  &.show {
+    transform: translateX(0);
+    .mask {
+      flex-grow: 1;
+    }
+  }
   .mask {
-    flex-grow: 1;
-    background: rgba(1,1,1,0.3);
+    flex-grow: 0;
   }
   ul {
     width: 60%;
