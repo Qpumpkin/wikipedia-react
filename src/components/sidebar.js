@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-import AddBookmark from '@/containers/addBookmark'
+import BookmarkButton from '@/containers/BookmarkButton'
 
 class Sidebar extends Component {
   handleClose = e => {
@@ -21,7 +21,7 @@ class Sidebar extends Component {
     return (
       <div className={className} onClick={this.handleClose}>
         <ul>
-          <li><AddBookmark pathname={this.props.location.pathname} /></li>
+          <li><BookmarkButton pathname={this.props.location.pathname} /></li>
           <li>
             <Link to='/'>
               <i className="iconfont icon-shouye"></i>
@@ -35,19 +35,19 @@ class Sidebar extends Component {
             </Link>
           </li>
           <li>
-            <Link to='/'>
+            <Link to='/bookmark'>
               <i className="iconfont icon-guanbi"></i>
               书签
             </Link>
           </li>
           <li>
-            <Link to='/'>
+            <Link to='/history'>
               <i className="iconfont icon-lishijilu"></i>
               历史
             </Link>
           </li>
           <li>
-            <Link to='/'>
+            <Link to='/setting'>
               <i className="iconfont icon-quanjushezhi"></i>
               设置
             </Link>

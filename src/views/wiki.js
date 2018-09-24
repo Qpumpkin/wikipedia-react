@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Header from '@/components/header'
+import Header from '@/components/Header'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
 
 class Wiki extends Component {

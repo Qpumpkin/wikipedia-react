@@ -1,7 +1,9 @@
-let nextHistoryId = 0
-
-export const addBookmark = title => ({
+export const addBookmark = pathname => ({
   type: 'ADD_BOOKMARK',
-  id: nextHistoryId++,
-  title
+  pathname
+})
+
+export const removeBookmark = pathname => ({
+  type: 'REMOVE_BOOKMARK',
+  pathname
 })

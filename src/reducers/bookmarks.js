@@ -4,14 +4,11 @@ const bookmarks = (state = [], action) => {
       return [
         ...state,
         {
-          id: action.id,
           pathname: action.pathname
         }
       ]
     case 'REMOVE_BOOKMARK':
-      return [
-        ...state
-      ]
+      return state.filter(bookmark => bookmark.pathname !== action.pathname)
     default:
       return state
   }

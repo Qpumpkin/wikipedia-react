@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 
 import Header from '@/components/Header'
 
-class History extends Component {
+class Setting extends Component {
   render() {
     return (
-      <div className="history">
+      <div className="setting">
         <Header />
-        <div>this is history</div>
+        <div>this is setting</div>
       </div>
     )
   }
 }
 
-export default History
+export default Setting
