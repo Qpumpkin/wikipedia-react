@@ -1,18 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 import '@/assets/less/index.less'
-import App from './App';
-// import store from './store'
+import App from './App'
+import rootReducer from './reducers'
 
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker'
+
+const store = createStore(rootReducer)
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App></App>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
-);
-registerServiceWorker();
+)
+
+registerServiceWorker()

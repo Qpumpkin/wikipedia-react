@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+
+import AddBookmark from '@/containers/addBookmark'
 
 class Sidebar extends Component {
   handleClose = e => {
@@ -9,11 +11,17 @@ class Sidebar extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.show === this.props.show) return false
+    else return true
+  }
+
   render() {
     const className = this.props.show ? "sidebar show" : "sidebar"
     return (
       <div className={className} onClick={this.handleClose}>
         <ul>
+          <li><AddBookmark pathname={this.props.location.pathname} /></li>
           <li>
             <Link to='/'>
               <i className="iconfont icon-shouye"></i>
@@ -21,7 +29,7 @@ class Sidebar extends Component {
             </Link>
           </li>
           <li>
-            <Link to='/'>
+            <Link to='/wiki/2'>
               <i className="iconfont icon-caidan"></i>
               随机
             </Link>
@@ -51,4 +59,4 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar
+export default withRouter(Sidebar)

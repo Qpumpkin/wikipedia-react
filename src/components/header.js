@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
 
 import SearchList from './search-list'
 import Sidebar from '@/components/sidebar'
@@ -90,4 +89,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header)
+export default Header

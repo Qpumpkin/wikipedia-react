@@ -35,11 +35,10 @@ class Wiki extends Component {
       const header = (cur.line && cur.level) ? `<h${cur.level}>${cur.line}</h${cur.level}>` : ''
       const section = header + cur.text
       return acc + section
-    }, `<h1>${page.displaytitle}</h1><p class="description">${page.description}</p>`)
+    }, `<h1>${page.displaytitle}</h1><p class="description">${page.description || ''}</p>`)
   }
 
   render() {
-    console.log('wiki render')
     const Article = this.state.isLoading ? 
       <div className="loading"><i className="iconfont icon-loading"></i></div> :
       <article className="article" dangerouslySetInnerHTML={{ __html: this.pageHTML }} />

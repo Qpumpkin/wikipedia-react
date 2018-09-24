@@ -20,16 +20,18 @@ a {
   color: inherit;
 }
 
-.icon-loading {
-  @keyframes rotate {
-    from {
-      transform: rotate(0);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+@keyframes rotate {
+  from {
+    transform: rotate(0);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-loading {
   animation: 1s linear rotate infinite;
+  display: inline-block;
 }
 
 .pull-left {
@@ -45,14 +47,14 @@ a {
 }
 .fade-enter-active {
   opacity: 1;
-  transition: all 600ms ease-out 300ms;
+  transition: all 500ms ease-out 250ms;
 }
 .fade-exit {
   opacity: 1;
 }
 .fade-exit-active {
   opacity: 0.01;
-  transition: all 300ms ease-out;
+  transition: all 250ms ease-out;
 }
 
 .animation-group > div {
