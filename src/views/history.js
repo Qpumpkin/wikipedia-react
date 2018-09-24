@@ -8,8 +8,12 @@ class History extends Component {
     return (
       <div className="history">
         <Header />
-        <div>this is history</div>
-        <HistoryList />
+        <div className="inner">
+          <h2>历史记录</h2>
+          <div className="content-box">
+          <HistoryList />
+          </div>
+        </div>
       </div>
     )
   }

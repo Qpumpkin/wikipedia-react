@@ -1,0 +1,63 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-loading {
+  animation: 1s linear rotate infinite;
+  display: inline-block;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: all 500ms ease-out 250ms;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0.01;
+  transition: all 250ms ease-out;
+}
+
+.animation-group > div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.content-box {
+  padding: 10px 20px;
+  box-shadow: 0 1px 2px #ccc;
+  background: white;
+  margin: 15px 0;
+}
+
+.bookmark, .history, .setting {
+  background: #f9fafb;
+  .inner {
+    width: 95%;
+    max-width: 993px;
+    margin: 0 auto;
+    li {
+      line-height: 40px;
+    }
+  }
+}

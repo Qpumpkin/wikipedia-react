@@ -7,7 +7,14 @@ class Setting extends Component {
     return (
       <div className="setting">
         <Header />
-        <div>this is setting</div>
+        <div className="inner">
+          <h2>设置</h2>
+          <div className="content-box">
+            <ul>
+              <li>更新中...</li>
+            </ul>
+          </div>
+        </div>
       </div>
     )
   }

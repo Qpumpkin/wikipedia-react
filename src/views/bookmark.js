@@ -8,8 +8,12 @@ class Bookmark extends Component {
     return (
       <div className="bookmark">
         <Header />
-        <div>this is bookmark</div>
-        <BookmarkList />
+        <div className="inner">
+          <h2>书签</h2>
+          <div className="content-box">
+            <BookmarkList />
+          </div>
+        </div>
       </div>
     )
   }

@@ -2,10 +2,10 @@ const bookmarks = (state = [], action) => {
   switch (action.type) {
     case 'ADD_BOOKMARK':
       return [
-        ...state,
         {
           pathname: action.pathname
-        }
+        },
+        ...state
       ]
     case 'REMOVE_BOOKMARK':
       return state.filter(bookmark => bookmark.pathname !== action.pathname)

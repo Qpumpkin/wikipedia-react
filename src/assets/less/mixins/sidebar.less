@@ -20,9 +20,16 @@
   ul {
     width: 60%;
     max-width: 300px;
-    background: @fill-background;
+    background: #eee;
     box-shadow: 0 0 10px rgba(1,1,1,0.2);
     li {
+      &.topbar {
+        line-height: 30px;
+        padding-left: 15px;
+        .icon-star1 {
+          color: #08f;
+        }
+      }
       a {
         display: block;
         line-height: 50px;
@@ -30,7 +37,7 @@
         background: @fill-base;
         padding-left: 15px;
         &:hover {
-          border-right: 5px solid #0067cb;
+          border-right: 5px solid #08f;
         }
         i {
           font-size: 1em;
@@ -38,7 +45,7 @@
         }
       }
     }
-    li:nth-child(3), li:nth-child(5) {
+    li:nth-child(4), li:nth-child(6) {
       margin-top: 20px;
     }
   }

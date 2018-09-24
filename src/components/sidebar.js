@@ -21,7 +21,7 @@ class Sidebar extends Component {
     return (
       <div className={className} onClick={this.handleClose}>
         <ul>
-          <li><BookmarkButton pathname={this.props.location.pathname} /></li>
+          <li className="topbar"><BookmarkButton pathname={this.props.location.pathname} /></li>
           <li>
             <Link to='/'>
               <i className="iconfont icon-shouye"></i>

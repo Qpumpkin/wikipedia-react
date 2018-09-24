@@ -76,7 +76,7 @@ class Header extends Component {
             <img src={wikiIcon} className="wiki-icon" alt="wikipedia" width="116" height="18"></img>
             <div className="search-bar">
               <i className="iconfont icon-sousuo"></i>
-              <input placeholder="search" value={this.state.inputValue} onChange={this.handleInputChange} onClick={this.handleInputClick}/>
+              <input placeholder="搜索维基内容" value={this.state.inputValue} onChange={this.handleInputChange} onClick={this.handleInputClick}/>
               {LoadingIcon}
               {CloseIcon}
             </div>
