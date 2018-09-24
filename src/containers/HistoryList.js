@@ -2,23 +2,23 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-class BookmarkList extends Component {
+class HistoryList extends Component {
   render() {
-    const { bookmarks } = this.props
-    const Bookmark = bookmarks.map(item => (
+    const { histories } = this.props
+    const History = histories.map(item => (
       <li key={item.pathname}><Link to={item.pathname}>{ item.pathname.slice(6) }</Link></li>
     ))
 
     return (
       <ul>
-        { Bookmark }
+        { History }
       </ul>
     )
   }
 }
 
 const mapStateToProps = state  => ({
-  bookmarks: state.bookmarks
+  histories: state.histories
 })
 
-export default connect(mapStateToProps)(BookmarkList)
+export default connect(mapStateToProps)(HistoryList)

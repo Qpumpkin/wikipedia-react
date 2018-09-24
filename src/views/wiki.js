@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import Header from '@/components/Header'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
+import { addHistory } from '@/actions'
 
 class Wiki extends Component {
   constructor() {
@@ -13,11 +15,13 @@ class Wiki extends Component {
   }
 
   componentWillMount() {
-    this.renderPage(this.props)
+    const { location, dispatch } = this.props
+    const pathname = location.pathname
+    this.renderPage(pathname.slice(6))
+    dispatch(addHistory(pathname))
   }
 
-  renderPage = props => {
-    const title = props.match.params.title
+  renderPage = title => {
     this.setState({ isLoading: true })
     wikiFetch(title, 'content')
       .then(res => {
@@ -51,4 +55,4 @@ class Wiki extends Component {
   }
 }
 
-export default Wiki
+export default connect()(Wiki)

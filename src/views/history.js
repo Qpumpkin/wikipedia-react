@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Header from '@/components/Header'
+import HistoryList from '@/containers/HistoryList'
 
 class History extends Component {
   render() {
@@ -8,6 +9,7 @@ class History extends Component {
       <div className="history">
         <Header />
         <div>this is history</div>
+        <HistoryList />
       </div>
     )
   }

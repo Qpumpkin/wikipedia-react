@@ -6,7 +6,6 @@ import { removeBookmark } from '../actions';
 class BookmarkButton extends Component {
   handleClick = () => {
     const { dispatch, pathname } = this.props
-    console.log(this.collect)
     if (this.collect) {
       dispatch(removeBookmark(pathname))
     } else if (pathname.slice(0, 5) === '/wiki') {
