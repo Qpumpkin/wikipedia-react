@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addBookmark } from '@/actions'
-import { removeBookmark } from '../actions';
+import { toggleBookmark } from '@/actions/bookmark'
 
 class BookmarkButton extends Component {
   handleClick = () => {
-    const { dispatch, pathname } = this.props
-    if (this.collect) {
-      dispatch(removeBookmark(pathname))
-    } else if (pathname.slice(0, 5) === '/wiki') {
-      dispatch(addBookmark(pathname))
-    } else return
+    const { pathname, toggleBookmark } = this.props
+    toggleBookmark(pathname, this.collect)
   }
 
   render() {
@@ -24,9 +19,9 @@ class BookmarkButton extends Component {
       }
     })
     
-    return (
-      <i className={className} onClick={this.handleClick} />
-    )
+    if (pathname.slice(1, 5) === 'wiki') {
+      return <i className={className} onClick={this.handleClick} />
+    } else return null
   }
 }
 
@@ -34,4 +29,4 @@ const mapStateToProps = state  => ({
   bookmarks: state.bookmarks
 })
 
-export default connect(mapStateToProps)(BookmarkButton)
+export default connect(mapStateToProps, { toggleBookmark })(BookmarkButton)

@@ -4,5 +4,5 @@ import histories from './histories'
 
 export default combineReducers({
   bookmarks,
-  histories
+  histories,
 })

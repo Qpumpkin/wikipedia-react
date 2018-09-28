@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
 import BookmarkButton from '@/containers/BookmarkButton'
+import { wikiFetch } from '@/assets/utils/wikiFetch'
 
 class Sidebar extends Component {
   handleClose = e => {
@@ -16,8 +17,17 @@ class Sidebar extends Component {
     else return true
   }
 
+  componentWillMount() {
+    wikiFetch(null, 'random')
+      .then(data => {
+        this.random = Object.values(data.query.pages)[0].title
+      })
+      .catch(err => console.log(err))
+  }
+
   render() {
     const className = this.props.show ? "sidebar show" : "sidebar"
+    const random = this.random || '2'
     return (
       <div className={className} onClick={this.handleClose}>
         <ul>
@@ -29,7 +39,7 @@ class Sidebar extends Component {
             </Link>
           </li>
           <li>
-            <Link to='/wiki/2'>
+            <Link to={'/wiki/' + random}>
               <i className="iconfont icon-caidan"></i>
               随机
             </Link>

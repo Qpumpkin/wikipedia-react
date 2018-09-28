@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Header from '@/components/Header'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
-import { addHistory } from '@/actions'
+import { addHistory } from '@/actions/history'
 
 class Wiki extends Component {
   constructor() {
@@ -14,11 +14,11 @@ class Wiki extends Component {
     }
   }
 
-  componentWillMount() {
-    const { location, dispatch } = this.props
+  componentDidMount() {
+    const { location, addHistory } = this.props
     const pathname = location.pathname
     this.renderPage(pathname.slice(6))
-    dispatch(addHistory(pathname))
+    addHistory(pathname)
   }
 
   renderPage = title => {
@@ -30,7 +30,7 @@ class Wiki extends Component {
           isLoading: false
         })
       })
-      .catch(err => { throw new Error(err) })
+      .catch(err => { console.log(err) })
   }
 
   get pageHTML() {
@@ -43,9 +43,9 @@ class Wiki extends Component {
   }
 
   render() {
-    const Article = this.state.isLoading ? 
-      <div className="loading"><i className="iconfont icon-loading"></i></div> :
-      <article className="article" dangerouslySetInnerHTML={{ __html: this.pageHTML }} />
+    const Article = this.state.isLoading
+      ? <div className="loading"><i className="iconfont icon-loading"></i></div>
+      : <article className="article" dangerouslySetInnerHTML={{ __html: this.pageHTML }} />
     return (
       <div className="wiki">
         <Header />
@@ -55,4 +55,4 @@ class Wiki extends Component {
   }
 }
 
-export default connect()(Wiki)
+export default connect(null, { addHistory })(Wiki)

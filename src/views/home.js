@@ -7,7 +7,9 @@ class Home extends Component {
     return (
       <div className="home">
         <Header />
-        <div>this is home</div>
+        <div className="inner">
+          <h2>主页</h2>
+        </div>
       </div>
     )
   }

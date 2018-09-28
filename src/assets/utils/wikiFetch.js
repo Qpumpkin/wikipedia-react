@@ -1,3 +1,17 @@
+import axios from 'axios'
+
+async function get(url) {
+  try {
+    let res = await axios.get(url)
+    return new Promise((resolve, reject) => {
+      if (res.status === 200) resolve(res.data)
+      else reject(res)
+    })
+  } catch (err) {
+    return Promise.reject('服务器错误：' + JSON.stringify(err))
+  }
+} 
+
 export function wikiFetch(keyword, type, params = {}) {
   switch(type) {
     case 'search': {
@@ -11,8 +25,8 @@ export function wikiFetch(keyword, type, params = {}) {
     }
 
     case 'random': {
-      const url = `https://zh.wikipedia.org/w/api.php?origin=*&action=query&exchars=525&exintro=1&exlimit=8&explaintext=&format=json&generator=random&grnfilterredir=nonredirects&grnlimit=8&grnnamespace=0&pilimit=8&piprop=thumbnail&pithumbsize=640&prop=extracts%7Cpageterms%7Cpageimages%7Cpageprops%7Crevisions&rvprop=ids&wbptterms=description`
-      return fetch(url).then(res => res.json())
+      const url = `https://zh.wikipedia.org/w/api.php?origin=*&action=query&exchars=525&exintro=1&exlimit=8&explaintext=&format=json&generator=random&grnfilterredir=nonredirects&grnlimit=8&grnnamespace=0&pilimit=8&piprop=thumbnail&pithumbsize=640&prop=extracts%7Cpageterms%7Cpageimages%7Cpageprops%7Crevisions&rvprop=ids&wbptterms=description` 
+      return get(url)
     }
 
     default: {
