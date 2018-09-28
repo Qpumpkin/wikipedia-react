@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Header from '@/components/Header'
+import Header from '@/components/header'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
 import { addHistory } from '@/actions/history'
 

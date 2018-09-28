@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import BookmarkButton from '@/containers/BookmarkButton'
+import { toggleBookmark } from '@/actions/bookmark'
+import BookmarkButton from '@/components/bookmarkButton'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
 
 class Sidebar extends Component {
@@ -26,12 +28,13 @@ class Sidebar extends Component {
   }
 
   render() {
+    const { bookmarks, location } = this.props
     const className = this.props.show ? "sidebar show" : "sidebar"
     const random = this.random || '2'
     return (
       <div className={className} onClick={this.handleClose}>
         <ul>
-          <li className="topbar"><BookmarkButton pathname={this.props.location.pathname} /></li>
+          <li className="topbar"><BookmarkButton bookmarks={bookmarks} pathname={location.pathname} /></li>
           <li>
             <Link to='/'>
               <i className="iconfont icon-shouye"></i>
@@ -69,4 +72,8 @@ class Sidebar extends Component {
   }
 }
 
-export default withRouter(Sidebar)
+const mapStateToProps = state  => ({
+  bookmarks: state.bookmarks
+})
+
+export default connect(mapStateToProps, { toggleBookmark })(withRouter(Sidebar))

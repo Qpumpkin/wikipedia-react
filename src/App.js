@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-import Home from '@/views/Home'
-import Wiki from '@/views/Wiki'
-import History from '@/views/History'
-import Bookmark from '@/views/Bookmark'
-import Setting from '@/views/Setting'
+import Home from '@/containers/home'
+import Wiki from '@/containers/wiki'
+import History from '@/containers/history'
+import Bookmark from '@/containers/bookmark'
+import Setting from '@/containers/setting'
 
 class AnimationApp extends Component {
   render() {

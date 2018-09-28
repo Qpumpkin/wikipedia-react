@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import SearchList from './SearchList'
-import Sidebar from '@/components/Sidebar'
+import SearchList from './searchList'
+import Sidebar from '@/containers/sidebar'
 import wikiIcon from '@/assets/imgs/wikipedia.svg'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
 import { debounce } from '@/assets/utils/util'

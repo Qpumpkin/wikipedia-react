@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class HistoryList extends Component {
@@ -19,8 +18,4 @@ class HistoryList extends Component {
   }
 }
 
-const mapStateToProps = state  => ({
-  histories: state.histories
-})
-
-export default connect(mapStateToProps)(HistoryList)
+export default HistoryList

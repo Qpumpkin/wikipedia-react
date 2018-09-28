@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { toggleBookmark } from '@/actions/bookmark'
 
 class BookmarkButton extends Component {
   handleClick = () => {
@@ -25,8 +23,4 @@ class BookmarkButton extends Component {
   }
 }
 
-const mapStateToProps = state  => ({
-  bookmarks: state.bookmarks
-})
-
-export default connect(mapStateToProps, { toggleBookmark })(BookmarkButton)
+export default BookmarkButton

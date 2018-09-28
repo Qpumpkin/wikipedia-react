@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 class BookmarkList extends Component {
@@ -19,8 +18,4 @@ class BookmarkList extends Component {
   }
 }
 
-const mapStateToProps = state  => ({
-  bookmarks: state.bookmarks
-})
-
-export default connect(mapStateToProps)(BookmarkList)
+export default BookmarkList
