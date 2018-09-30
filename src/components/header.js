@@ -16,9 +16,6 @@ class Header extends Component {
       isSearchListShow: false,
       isSidebarShow: false
     }
-  }
-
-  componentWillMount() {
     this.fetchDebounce = debounce(this.fetchResults, 200)
   }
 

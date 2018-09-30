@@ -28,13 +28,20 @@ class Sidebar extends Component {
   }
 
   render() {
-    const { bookmarks, location } = this.props
+    const { bookmarks, location, toggleBookmark } = this.props
     const className = this.props.show ? "sidebar show" : "sidebar"
     const random = this.random || '2'
+    
     return (
       <div className={className} onClick={this.handleClose}>
         <ul>
-          <li className="topbar"><BookmarkButton bookmarks={bookmarks} pathname={location.pathname} /></li>
+          <li className="topbar">
+            <BookmarkButton 
+              bookmarks={bookmarks} 
+              toggleBookmark={toggleBookmark} 
+              pathname={location.pathname}
+            />
+          </li>
           <li>
             <Link to='/'>
               <i className="iconfont icon-shouye"></i>

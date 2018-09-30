@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Header from '@/components/header'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
 import { addHistory } from '@/actions/history'
+import ScrollToTop from '@/components/scrollToTop'
 
 class Wiki extends Component {
   constructor() {
@@ -49,6 +50,7 @@ class Wiki extends Component {
     return (
       <div className="wiki">
         <Header />
+        <ScrollToTop />
         { Article }
       </div>
     )

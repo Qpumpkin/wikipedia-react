@@ -93,14 +93,22 @@
         margin: 0 auto 12px;
         background: #f8f9fa;
         border: 1px solid #ddd;
+        tbody {
+          display: flex;
+          flex-flow: column nowrap;
+        }
         th, tr, td {
           padding: 7px 10px;
         }
         tr {
+          display: flex;
           border-bottom: 1px solid #eaecf0;
           &:last-child {
             border: none;
           }
+        }
+        td {
+          flex: 1 0;
         }
         .center {
           text-align: center;
