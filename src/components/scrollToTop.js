@@ -8,6 +8,7 @@ class ScrollToTop extends Component {
       show: false
     }
     this.handleScroll = debounceMix(this.handleScroll, 200)
+    this.scrollTop = 0
   }
 
   componentWillMount() {
@@ -21,7 +22,6 @@ class ScrollToTop extends Component {
     requestAnimationFrame(scrollBy)
 
     function scrollBy() {
-      console.log(1)
       window.scrollBy(0, -Y)
       if (++count < step) {
         requestAnimationFrame(scrollBy)
@@ -39,6 +39,14 @@ class ScrollToTop extends Component {
         this.setState({ show: false })
       }
     }
+
+    // true: scroll up, false: scroll down
+    const pre = this.scrollTop
+    const cur = window.scrollY
+    if (pre === cur) return
+    const tag = pre < cur
+    this.scrollTop = cur
+    this.props.parentOnScroll(tag)
   }
 
   render() {

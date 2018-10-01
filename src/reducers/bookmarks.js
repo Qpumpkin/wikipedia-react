@@ -1,18 +1,23 @@
 import { saveItem } from '@/assets/utils/localStorage'
 
-const bookmarks = (state = [], action) => {
+const initialState = {
+  bookmarkList: []
+}
+
+const bookmarks = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_BOOKMARK':
-      return [
-        {
-          pathname: action.pathname
-        },
-        ...state
-      ]
+      return {
+        ...state,
+        bookmarkList: [action.payload, ...state.bookmarkList]
+      }
     case 'REMOVE_BOOKMARK':
-      return state.filter(bookmark => bookmark.pathname !== action.pathname)
+      return {
+        ...state,
+        bookmarkList: state.bookmarkList.filter(bookmark => bookmark.pathname !== action.payload)
+      }
     case 'UPDATE_LS_BOOKMARK':
-      saveItem('bookmarks', state)
+      saveItem('bookmarks', state.bookmarkList)
       return state
     default:
       return state

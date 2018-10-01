@@ -63,11 +63,14 @@ class Header extends Component {
   }
 
   render() {
+    const { moveHeader, slot } = this.props
     const LoadingIcon = this.state.isLoading ? <i className="iconfont icon-loading"></i> : null
     const CloseIcon = this.state.inputValue ? <i className="iconfont icon-guanbi" onClick={this.clearInput}></i> : null
+    const moveClass = moveHeader ? 'move' : ''
+
     return (
       <div className="header">
-        <header className="header-container">
+        <header className={'header-container ' + moveClass}>
           <div className="header-inner">
             <i className="iconfont icon-caidan" onClick={this.handleSidebarClick}></i>
             <img src={wikiIcon} className="wiki-icon" alt="wikipedia" width="116" height="18"></img>
@@ -77,6 +80,9 @@ class Header extends Component {
               {LoadingIcon}
               {CloseIcon}
             </div>
+          </div>
+          <div className="header-slot">
+            {slot}
           </div>
         </header>
         <SearchList results={this.state.results} show={this.state.isSearchListShow} onSearchListClose={this.handleSearchListClose}/>

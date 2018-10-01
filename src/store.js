@@ -5,8 +5,14 @@ import rootReducer from './reducers'
 import { loadItem } from '@/assets/utils/localStorage'
 
 const preState = {
-  bookmarks: loadItem('bookmarks'),
-  histories: loadItem('histories')
+  bookmarks: {
+    bookmarkList: loadItem('bookmarks') || [],
+    selectList: []
+  },
+  histories: {
+    historyList: loadItem('histories') || [],
+    selectList: []
+  }
 }
 
 const store = createStore(

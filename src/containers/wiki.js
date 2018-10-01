@@ -11,7 +11,8 @@ class Wiki extends Component {
     super()
     this.state = {
       page: { sections: [] },
-      isLoading: false
+      isLoading: false,
+      moveHeader: false
     }
   }
 
@@ -34,6 +35,12 @@ class Wiki extends Component {
       .catch(err => { console.log(err) })
   }
 
+  handleScroll = tag => {
+    if (this.state.moveHeader !== tag) {
+      this.setState({ moveHeader: tag })
+    }
+  }
+
   get pageHTML() {
     const page = this.state.page
     return page.sections && page.sections.reduce((acc, cur) => {
@@ -44,13 +51,26 @@ class Wiki extends Component {
   }
 
   render() {
+    const { location } = this.props
+    const title = location.pathname.slice(6)
     const Article = this.state.isLoading
       ? <div className="loading"><i className="iconfont icon-loading"></i></div>
       : <article className="article" dangerouslySetInnerHTML={{ __html: this.pageHTML }} />
-    return (
+    const slotStyle = {
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontSize: '20px'
+    }
+    const HeaderSlot = (
+      <div style={slotStyle}>
+        {title}
+      </div>
+    )
+
+    return (  
       <div className="wiki">
-        <Header />
-        <ScrollToTop />
+        <Header slot={HeaderSlot} moveHeader={this.state.moveHeader}/>
+        <ScrollToTop parentOnScroll={this.handleScroll}/>
         { Article }
       </div>
     )

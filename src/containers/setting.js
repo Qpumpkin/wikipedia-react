@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import Header from '@/components/header'
+import { clearHistory } from '@/actions/history'
 
 class Setting extends Component {
   render() {
+    const { clearHistory } = this.props
+
     return (
       <div className="setting">
         <Header />
@@ -11,7 +15,7 @@ class Setting extends Component {
           <h2>设置</h2>
           <div className="content-box">
             <ul>
-              <li>更新中...</li>
+              <li onClick={clearHistory}><button>清除历史记录</button></li>
             </ul>
           </div>
         </div>
@@ -20,4 +24,8 @@ class Setting extends Component {
   }
 }
 
-export default Setting
+const mapDispatch = dispatch => ({
+  clearHistory: () => dispatch(clearHistory())
+})
+
+export default connect(null, mapDispatch)(Setting)

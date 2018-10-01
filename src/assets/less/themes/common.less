@@ -35,9 +35,16 @@
   transition: all 250ms ease-out;
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .animation-group > div {
   position: absolute;
-  top: 0;
+  top: 44px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -51,13 +58,14 @@
 }
 
 .bookmark, .history, .setting, .home {
-  background: #f9fafb;
   .inner {
     width: 95%;
     max-width: 993px;
     margin: 0 auto;
     li {
       line-height: 40px;
+      display: flex;
+      align-items: center;
     }
   }
 }
@@ -84,5 +92,29 @@
     &.icon-show {
       opacity: 1;
     }
+  }
+}
+
+.header-list-slot {
+  display: flex;
+  align-items: center;
+  max-width: 993px;
+  margin: 0 auto;
+  padding: 0 10px;
+  span {
+    flex: 1;
+    font-size: 14px;
+  }
+  button {
+    display: inline-block;
+    width: 60px;
+    margin-left: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px;
+    color: #0089ff;
+    cursor: pointer;
+    outline: none;
   }
 }

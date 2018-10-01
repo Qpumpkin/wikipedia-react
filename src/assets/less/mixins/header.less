@@ -1,7 +1,20 @@
 .header {
+  z-index: 1;
   .header-container {
     background: #eee;
     box-shadow: 0 0 10px rgba(1,1,1,0.2);
+    height: 44px;
+    overflow: hidden;
+    &.move>div {
+      transform: translateY(-44px);
+    }
+    div {
+      box-sizing: border-box;
+      height: 44px;
+      line-height: 44px;
+      transition: transform 0.2s ease-in-out;
+    }
+
     .header-inner {
       max-width: 993px;
       padding: 6px 10px;

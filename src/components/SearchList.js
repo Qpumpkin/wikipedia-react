@@ -16,7 +16,6 @@ class SearchList extends Component {
 
     const { results } = this.props;
     const lists = Object.values(results).sort((a, b) => a.index - b.index)
-    console.log(lists)
 
     const listItem = lists.map((list, index) => {
       const src = list.thumbnail && list.thumbnail.source

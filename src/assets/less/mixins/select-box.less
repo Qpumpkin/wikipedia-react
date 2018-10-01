@@ -1,0 +1,26 @@
+.select-box {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #666;
+  border-radius: 2px;
+  margin-right: 20px;
+  vertical-align: top;
+  line-height: 0.8em;
+  text-align: center;
+  &.checked {
+    background: #0089ff;
+    i {
+      transform: scale(1);
+    }
+  }
+  i {
+    font-size: 14px;
+    display: inline-block;
+    transform: scale(0);
+    color: white;
+    user-select: none;
+    transition: transform 0.3s ease;
+  }
+}

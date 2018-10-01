@@ -9,8 +9,8 @@ class BookmarkButton extends Component {
   }
 
   componentDidMount() {
-    const { bookmarks, pathname } = this.props
-    bookmarks.forEach(item => {
+    const { bookmarkList, pathname } = this.props
+    bookmarkList.forEach(item => {
       if (item.pathname === pathname) {
         this.setState({ collect: true })
       }
@@ -26,8 +26,8 @@ class BookmarkButton extends Component {
   render() {
     const { pathname } = this.props
     let className = this.state.collect
-      ? 'iconfont icon-staro'
-      : 'iconfont icon-star1'
+      ? 'iconfont icon-star1'
+      : 'iconfont icon-staro'
     
     if (pathname.slice(1, 5) === 'wiki') {
       return <i className={className} onClick={this.handleClick} />
