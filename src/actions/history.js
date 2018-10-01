@@ -7,24 +7,27 @@ export function addHistory(pathname) {
 
 export function addSelectItem(pathname) {
   return {
-    type: 'ADD_SELECT_ITEM',
+    type: 'ADD_SELECT_ITEM_H',
     payload: { pathname }
   }
 }
 
 export function removeSelectItem(pathname) {
   return {
-    type: 'REMOVE_SELECT_ITEM',
+    type: 'REMOVE_SELECT_ITEM_H',
     payload: { pathname }
   }
 }
 
 export function clearSelectItem() {
-  return { type: 'CLEAR_SELECT_ITEM' }
+  return { type: 'CLEAR_SELECT_ITEM_H' }
 }
 
 export function removeHistory() {
-  return { type: 'REMOVE_HISTORY' }
+  return dispatch => {
+    dispatch({ type: 'REMOVE_HISTORY' })
+    dispatch({ type: 'UPDATE_LS_HISTORY' })
+  }
 }
 
 export function clearHistory() {

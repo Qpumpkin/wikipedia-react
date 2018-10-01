@@ -6,13 +6,6 @@ import SelectList from '@/components/selectList'
 import * as actions from '@/actions/history'
 
 class History extends Component {
-  constructor() {
-    super()
-    this.state = {
-      selectList: []
-    }
-  }
-
   render() {
     const { histories, addSelectItem, removeSelectItem, removeHistory, clearSelectItem } = this.props
     const historyList = histories.historyList
@@ -53,7 +46,7 @@ const mapDispatch = dispatch => ({
   addSelectItem: pathname => dispatch(actions.addSelectItem(pathname)),
   removeSelectItem: pathname => dispatch(actions.removeSelectItem(pathname)),
   clearSelectItem: () => dispatch(actions.clearSelectItem()),
-  removeHistory: () => dispatch(actions.removeHistory()),
+  removeHistory: () => dispatch(actions.removeHistory())
 })
 
 export default connect(mapState, mapDispatch)(History)

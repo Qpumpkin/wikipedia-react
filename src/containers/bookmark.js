@@ -1,41 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import Header from '@/components/header'
-import SelectBox from '@/components/selectBox'
+import SelectList from '@/components/selectList'
+import * as actions from '@/actions/bookmark'
 
 class Bookmark extends Component {
   render() {
-    const { bookmarks } = this.props
+    const { bookmarks, addSelectItem, removeSelectItem, removeBookmark, clearSelectItem } = this.props
     const bookmarkList = bookmarks.bookmarkList
-    const Bookmark = bookmarkList.length
-      ? bookmarkList.map(item => (
-          <li key={item.pathname} className="select-list">
-            <SelectBox checked={item.checked} />
-            <Link to={item.pathname}>
-              { item.pathname.slice(6) }
-            </Link>
-          </li>
-        ))
-      : <li>暂无内容</li>
+    const selectList = bookmarks.selectList
+
     const HeaderSlot = (
-      <div className="header-slot-list">
-        <span>已选择 0 项</span>
-        <button>取消</button>
-        <button>删除</button>
+      <div className="header-list-slot">
+        <span>已选择 {selectList.length} 项</span>
+        <button onClick={clearSelectItem}>取消</button>
+        <button onClick={removeBookmark}>删除</button>
       </div>
     )
 
     return (
       <div className="bookmark">
-        <Header slot={HeaderSlot} moveHeader={false} />
+        <Header slot={HeaderSlot} moveHeader={selectList.length} />
         <div className="inner">
           <h2>书签</h2>
           <div className="content-box">
-            <ul>
-              { Bookmark }
-            </ul>
+            <SelectList 
+              list={bookmarkList}
+              selectList={selectList}
+              addSelectItem={addSelectItem}
+              removeSelectItem={removeSelectItem}
+            />
           </div>
         </div>
       </div>
@@ -43,8 +38,15 @@ class Bookmark extends Component {
   }
 }
 
-const mapStateToProps = state  => ({
+const mapState = state  => ({
   bookmarks: state.bookmarks
 })
 
-export default connect(mapStateToProps)(Bookmark)
+const mapDispatch = dispatch => ({
+  addSelectItem: pathname => dispatch(actions.addSelectItem(pathname)),
+  removeSelectItem: pathname => dispatch(actions.removeSelectItem(pathname)),
+  clearSelectItem: () => dispatch(actions.clearSelectItem()),
+  removeBookmark: () => dispatch(actions.removeBookmark())
+})
+
+export default connect(mapState, mapDispatch)(Bookmark)
