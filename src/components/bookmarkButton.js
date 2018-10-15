@@ -26,11 +26,15 @@ class BookmarkButton extends Component {
   render() {
     const { pathname } = this.props
     let className = this.state.collect
-      ? 'iconfont icon-star1'
-      : 'iconfont icon-staro'
+      ? 'love collected'
+      : 'love'
     
     if (pathname.slice(1, 5) === 'wiki') {
-      return <i className={className} onClick={this.handleClick} />
+      return (
+        <div>
+          <span className={className} onClick={this.handleClick} />
+        </div>
+      )
     } else return null
   }
 }

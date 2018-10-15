@@ -24,6 +24,7 @@
       &>i {
         font-size: 22px;
         cursor: pointer;
+        flex-basis: 0;
       }
       &>.wiki-icon {
         margin: 0 20px;
@@ -31,15 +32,15 @@
       }
       &>.search-bar {
         width: 100%;
-        max-width: 300px;
-        margin-left: 10px;
+        margin: 0 11px;
+        flex: 1;
       }
       @media (min-width: 720px) {
         .wiki-icon {
           display: block;
         }
-        .search-bar {
-          margin-left: 50px;
+        .noop {
+          width: 180px;
         }
       }
       .search-bar {
@@ -65,6 +66,31 @@
             font-size: 16px;
             margin-right: 7px;
           }
+        }
+      }
+    }
+    .header-slot {
+      .header-list-slot {
+        display: flex;
+        align-items: center;
+        max-width: 993px;
+        margin: 0 auto;
+        padding: 0 10px;
+        span {
+          flex: 1;
+          font-size: 14px;
+        }
+        button {
+          display: inline-block;
+          width: 60px;
+          margin-left: 10px;
+          background: white;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          padding: 5px;
+          color: #0089ff;
+          cursor: pointer;
+          outline: none;
         }
       }
     }

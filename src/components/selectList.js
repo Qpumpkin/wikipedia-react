@@ -5,15 +5,13 @@ import SelectBox from '@/components/selectBox'
 
 class SelectList extends Component {
   render() {
-    const { list, selectList, addSelectItem, removeSelectItem } = this.props
+    const { list } = this.props
     const ListItem = list.length
       ? list.map(item => (
           <li key={item.pathname} className="select-list-item">
             <SelectBox 
+              {...this.props}
               pathname={item.pathname}
-              selectList={selectList}
-              addSelectItem={addSelectItem}
-              removeSelectItem={removeSelectItem}
             />
             <Link to={item.pathname}>
               { item.pathname.slice(6) }

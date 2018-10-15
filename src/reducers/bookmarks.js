@@ -17,7 +17,7 @@ const bookmarks = (state = initialState, action) => {
     case 'DELETE_BOOKMARK':
       return {
         selectList: [...selectList],
-        bookmarkList: state.bookmarkList.filter(bookmark => bookmark.pathname !== action.payload)
+        bookmarkList: state.bookmarkList.filter(bookmark => bookmark.pathname !== action.payload.pathname)
       }
     case 'REMOVE_BOOKMARK':
       return {

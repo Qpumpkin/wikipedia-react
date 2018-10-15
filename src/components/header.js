@@ -80,6 +80,7 @@ class Header extends Component {
               {LoadingIcon}
               {CloseIcon}
             </div>
+            <div className="noop"></div>
           </div>
           <div className="header-slot">
             {slot}

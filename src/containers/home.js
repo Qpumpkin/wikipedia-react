@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Header from '@/components/header'
+import wikiImg from '@/assets/imgs/zhwiki.png'
 
 class Home extends Component {
   render() {
@@ -8,7 +9,7 @@ class Home extends Component {
       <div className="home">
         <Header />
         <div className="inner">
-          <h2>主页</h2>
+          <img src={wikiImg} className="wiki-img" alt="wiki" />
         </div>
       </div>
     )
