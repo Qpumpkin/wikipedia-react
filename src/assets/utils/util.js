@@ -35,3 +35,18 @@ export function debounceMix(func, wait = 100) {
     }, wait)
   }
 }
+
+export function getDuring(lastTime) {
+  if (!lastTime) return ''
+  let time = Date.now()
+  lastTime = new Date(lastTime).getTime()
+  let during = time - lastTime
+  during /= 1000
+  if (during < 60) return (during | 0) + '秒前'
+  during /= 60
+  if (during < 60) return (during | 0) + '分钟前'
+  during /= 60
+  if (during < 24) return (during | 0) + '小时前'
+  during /= 24
+  return (during | 0) + '天前'
+}

@@ -14,7 +14,7 @@ class AnimationApp extends Component {
 
     return (
       <TransitionGroup className="animation-group">
-        <CSSTransition key={location.key} classNames="fade" timeout={{enter: 500, exit: 250}}>
+        <CSSTransition key={location.key} classNames="fade" timeout={{enter: 750, exit: 0}}>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/wiki/:title" component={Wiki} />

@@ -1,10 +1,12 @@
 .wiki {
   .loading {
-    width: 100%;
-    padding-top: 20px;
-    text-align: center;
-    i {
-      font-size: 30px;
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
     }
   }
   .article {
@@ -100,11 +102,20 @@
         th, tr, td {
           padding: 7px 10px;
         }
+        th {
+          flex: 1;
+        }
         tr {
           display: flex;
           border-bottom: 1px solid #eaecf0;
           &:last-child {
             border: none;
+          }
+        }
+        caption {
+          display: flex;
+          b {
+            width: 100%;
           }
         }
         td {

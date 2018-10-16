@@ -5,6 +5,7 @@ import Header from '@/components/header'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
 import { addHistory } from '@/actions/history'
 import ScrollToTop from '@/components/scrollToTop'
+import loadingImg from '@/assets/imgs/loading.gif'
 
 class Wiki extends Component {
   constructor() {
@@ -54,7 +55,7 @@ class Wiki extends Component {
     const { location } = this.props
     const title = location.pathname.slice(6)
     const Article = this.state.isLoading
-      ? <div className="loading"><i className="iconfont icon-loading"></i></div>
+      ? <div className="loading"><img src={loadingImg} alt="loading..."/></div>
       : <article className="article" dangerouslySetInnerHTML={{ __html: this.pageHTML }} />
     const slotStyle = {
       textAlign: 'center',

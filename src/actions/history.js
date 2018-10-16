@@ -30,9 +30,9 @@ export function removeHistory() {
   }
 }
 
-export function clearHistory() {
+export function clearHistory(during) {
   return dispatch => {
-    localStorage.removeItem('histories')
-    dispatch({ type: 'CLEAR_HISTORY' })
+    dispatch({ type: 'CLEAR_HISTORY', payload: { during } })
+    dispatch({ type: 'UPDATE_LS_HISTORY' })
   }
 }

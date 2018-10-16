@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import SelectBox from '@/components/selectBox'
+import { getDuring } from '@/assets/utils/util'
 
 class SelectList extends Component {
   render() {
@@ -16,6 +17,7 @@ class SelectList extends Component {
             <Link to={item.pathname}>
               { item.pathname.slice(6) }
             </Link>
+            <div className="during">{ getDuring(item.date) }</div>
           </li>
         ))
       : <li>暂无记录</li>

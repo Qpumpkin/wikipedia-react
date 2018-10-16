@@ -5,6 +5,32 @@ const initialState = {
   selectList: []
 }
 
+function transformDate(during) {
+  const now = Date.now()
+  let hour = 1000 * 3600
+
+  switch (during) {
+    case '1hour':
+      break
+    case '1day':
+      hour *= 24
+      break
+    case '7day':
+      hour *= 24 * 7
+      break
+    case '1month':
+      hour *= 24 * 30
+      break
+    case 'all':
+      hour = now
+      break
+    default:
+      break
+  }
+
+  return now - hour
+}
+
 const histories = (state = initialState, action) => {
   const { historyList, selectList } = state
   const payload = action.payload
@@ -41,9 +67,10 @@ const histories = (state = initialState, action) => {
       saveItem('histories', historyList)
       return state
     case 'CLEAR_HISTORY':
+      const limit = transformDate(payload.during)
       return {
         selectList: [],
-        historyList: []
+        historyList: historyList.filter(history => history.date < limit)
       }
     default:
       return state

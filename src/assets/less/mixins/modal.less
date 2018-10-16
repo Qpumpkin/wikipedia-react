@@ -1,0 +1,61 @@
+.modal {
+  .mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+  .inner {
+    width: 300px;
+    min-height: 150px;
+    padding: 10px;
+    position: absolute;
+    background: white;
+    border-radius: 7px;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%);
+    margin: 0 auto;
+    z-index: 1;
+    animation: 0.3s ease-out 1 fadeInDown;
+    @media (min-width: 720px) {
+      width: 400px;
+    }
+    .footer {
+      width: calc(100% - 20px);
+      position: absolute;
+      bottom: 10px;
+      button {
+        margin-left: 10px;
+        padding: 6px 20px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        &.close {
+          background: white;
+          border: 1px solid #8caed1;
+          color: #0074eb;
+        }
+        &.commit {
+          background: #0074eb;
+          border: 1px solid #0074eb;
+          color: white;
+        }
+      }
+    }
+  }
+  @keyframes fadeInDown {
+    from {
+      transform: translate(-50%, -30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(-50%, 0);
+      opacity: 1;
+    }
+  }
+}

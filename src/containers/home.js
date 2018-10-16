@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Header from '@/components/header'
-import wikiImg from '@/assets/imgs/zhwiki.png'
+import wikiImg from '@/assets/imgs/zhwiki.jpg'
 
 class Home extends Component {
   render() {
