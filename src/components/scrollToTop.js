@@ -11,7 +11,7 @@ class ScrollToTop extends Component {
     this.scrollTop = 0
   }
 
-  componentWillMount() {
+  componentDidMount() {
     window.addEventListener('scroll', this.handleScroll)
   }
 

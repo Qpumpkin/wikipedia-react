@@ -20,7 +20,7 @@ class Sidebar extends Component {
     else return true
   }
 
-  componentWillMount() {
+  componentDidMount() {
     wikiFetch(null, 'random')
       .then(data => {
         const random = Object.values(data.query.pages).map(page => page.title)
