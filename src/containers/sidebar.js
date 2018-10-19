@@ -53,12 +53,12 @@ class Sidebar extends Component {
           </li>
           <li>
             <Link to={'/wiki/' + title}>
-              <i className="iconfont icon-caidan"></i>随机
+              <i className="iconfont icon-random"></i>随机
             </Link>
           </li>
           <li>
             <Link to='/bookmark'>
-              <i className="iconfont icon-guanbi"></i>书签
+              <i className="iconfont icon-label"></i>书签
             </Link>
           </li>
           <li>

@@ -12,17 +12,19 @@ React 全家桶：react + redux + react-router 4.0
 
 ## Todo
 
-- [√] 搜索
-- [√] 收藏
-- [√] 历史记录
-- [√] 随机词条
-- [√] 兼容 PC 端和移动端
-- [ ] 热点推荐
+- [x] 搜索
+- [x] 收藏
+- [x] 历史记录
+- [x] 随机词条
+- [x] 热榜
+- [ ] 推荐及首页切换动画
 - [ ] 更美观的侧栏样式和弹出动画
-- [ ] 使用 TypeScript 替换 JS
 - [ ] 后端代理发向维基的请求
+- [ ] 使用 TypeScript 替换 JS
 
 ## 截图
 
-<img src="./README_IMG/shot1.png" width="360">
-<img src="./README_IMG/shot2.png" width="360">
+<img src="./README_IMG/Screenshot1.png" width="360">
+<img src="./README_IMG/Screenshot2.png" width="360">
+<img src="./README_IMG/Screenshot3.png" width="360">
+<img src="./README_IMG/Screenshot4.png" width="360">

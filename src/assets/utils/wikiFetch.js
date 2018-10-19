@@ -32,6 +32,14 @@ export function wikiFetch(keyword, type, params = {}) {
       return get(url)
     }
 
+    case 'topic': {
+      const yyyy = new Date().getFullYear()
+      const mm = new Date().getMonth() + 1
+      const dd = new Date().getDate() - 1
+      const url = `https://zh.wikipedia.org/api/rest_v1/feed/featured/${yyyy}/${mm}/${dd}`
+      return get(url)
+    }
+
     default: {
       throw new Error('wrong fetch type')
     }

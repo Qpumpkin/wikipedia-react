@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 import Home from '@/containers/home'
@@ -21,6 +21,7 @@ class AnimationApp extends Component {
             <Route path="/history" component={History} />
             <Route path="/bookmark" component={Bookmark} />
             <Route path="/setting" component={Setting} />
+            <Redirect to="/" />
           </Switch>
         </CSSTransition>
       </TransitionGroup>
