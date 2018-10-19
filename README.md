@@ -1,6 +1,6 @@
 # wikipedia-react
 
-[demo](https://sanvvv.github.io/)
+[demo](http://wikipedia.sanvvv.me/)
 
 基于 React 实现的维基百科应用。
 
@@ -24,7 +24,5 @@ React 全家桶：react + redux + react-router 4.0
 
 ## 截图
 
-<img src="./README_IMG/Screenshot1.png" width="360">
-<img src="./README_IMG/Screenshot2.png" width="360">
-<img src="./README_IMG/Screenshot3.png" width="360">
-<img src="./README_IMG/Screenshot4.png" width="360">
+<img src="./README_IMG/Screenshot1.png" width="360"><img src="./README_IMG/Screenshot2.png" width="360">
+<img src="./README_IMG/Screenshot3.png" width="360"><img src="./README_IMG/Screenshot4.png" width="360">
