@@ -1,0 +1,32 @@
+.common {
+  button {
+    z-index: 2;
+    background: black;
+    position: absolute;
+    bottom: 0;
+    color: white;
+  }
+  .message {
+    position: fixed;
+    bottom: 25px;
+    min-width: 100px;
+    padding: 8px 12px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    z-index: 1;
+    &.enter {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    &.leave {
+      opacity: 0;
+      transform: translate(-50%, 10px);
+    }
+  }
+}

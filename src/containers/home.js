@@ -10,10 +10,9 @@ function MapTopics(topicList) {
   const divStyle = {
     WebkitBoxOrient: 'vertical'
   }
-
   return (
     topicList.map(article => (
-      <li className="topic" key={article.rank}>
+      <li className="topic" key={article.displaytitle}>
         <Link to={`/wiki/${article.displaytitle}`}>
           <img src={article.thumbnail.source} alt="topic"/>
         </Link>

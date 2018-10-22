@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Header from '@/components/header'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
 import { addHistory } from '@/actions/history'
+import { showMessage } from '@/actions/common'
 import ScrollToTop from '@/components/scrollToTop'
 import loadingImg from '@/assets/imgs/loading.gif'
 
@@ -46,7 +47,9 @@ class Wiki extends Component {
           isLoading: false
         })
       })
-      .catch(err => { console.log(err) })
+      .catch(err => {
+        this.props.showMessage('网络错误，试试代理吧')
+      })
   }
 
   handleScroll = tag => {
@@ -92,4 +95,9 @@ class Wiki extends Component {
   }
 }
 
-export default connect(null, { addHistory })(Wiki)
+const mapDispatch = dispatch => ({
+  addHistory: pathname => dispatch(addHistory(pathname)),
+  showMessage: content => dispatch(showMessage(content))
+})
+
+export default connect(null, mapDispatch)(Wiki)

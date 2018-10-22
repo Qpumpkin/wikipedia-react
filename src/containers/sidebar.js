@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { toggleBookmark } from '@/actions/bookmark'
+import { showMessage } from '@/actions/common'
 import BookmarkButton from '@/components/bookmarkButton'
 import { wikiFetch } from '@/assets/utils/wikiFetch'
 import { loadItem, saveItem } from '@/assets/utils/localStorage'
@@ -26,12 +27,13 @@ class Sidebar extends Component {
         const random = Object.values(data.query.pages).map(page => page.title)
         saveItem('random', random)
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        this.props.showMessage('网络错误，试试代理吧')
+      })
   }
 
   render() {
-    const { bookmarks, location, toggleBookmark } = this.props
-    const bookmarkList = bookmarks.bookmarkList
+    const { bookmarks, location, toggleBookmark, showMessage } = this.props
     const className = this.props.show ? "sidebar show" : "sidebar"
     const random = loadItem('random') || ['1']
     const title = random[Math.floor(random.length * Math.random())]
@@ -40,10 +42,11 @@ class Sidebar extends Component {
       <div className={className} onClick={this.handleClose}>
         <ul>
           <li className="topbar">
-            <BookmarkButton 
-              bookmarkList={bookmarkList} 
+            <BookmarkButton {...this.props}
+              bookmarkList={bookmarks.bookmarkList} 
               toggleBookmark={toggleBookmark} 
               pathname={location.pathname}
+              showMessage={showMessage}
             />
           </li>
           <li>
@@ -82,4 +85,9 @@ const mapState = state  => ({
   bookmarks: state.bookmarks
 })
 
-export default connect(mapState, { toggleBookmark })(withRouter(Sidebar))
+const mapDispatch = dispatch => ({
+  toggleBookmark: (pathname, isCollect) => dispatch(toggleBookmark(pathname, isCollect)),
+  showMessage: content => dispatch(showMessage(content))
+})
+
+export default connect(mapState, mapDispatch)(withRouter(Sidebar))

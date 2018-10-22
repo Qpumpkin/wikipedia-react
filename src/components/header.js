@@ -44,7 +44,9 @@ class Header extends Component {
           results: res.query.pages || [],
           isLoading: false
         }))
-        .catch(err => { throw new Error(err) })
+        .catch(err => {
+          alert(err)
+        })
   }
 
   clearInput = () => {

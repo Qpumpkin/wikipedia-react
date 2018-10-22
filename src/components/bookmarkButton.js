@@ -18,9 +18,12 @@ class BookmarkButton extends Component {
   }
 
   handleClick = () => {
-    const { pathname, toggleBookmark } = this.props
-    toggleBookmark(pathname, this.state.collect)
-    this.setState({ collect: !this.state.collect })
+    const { pathname, toggleBookmark, showMessage } = this.props
+    const tag = this.state.collect
+    const message = tag ? '取消收藏' : '收藏成功'
+    toggleBookmark(pathname, tag)
+    this.setState({ collect: !tag })
+    showMessage(message)
   }
 
   render() {

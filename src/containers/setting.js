@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Header from '@/components/header'
 import Modal from '@/components/modal'
 import { clearHistory } from '@/actions/history'
+import { showMessage } from '@/actions/common'
 
 class Setting extends Component {
   constructor() {
@@ -21,6 +22,7 @@ class Setting extends Component {
   handleCommit = () => {
     this.props.clearHistory(this.during.current.value)
     this.handleClick(false)
+    this.props.showMessage('清除成功')
   }
 
   render() {
@@ -58,7 +60,8 @@ class Setting extends Component {
 }
 
 const mapDispatch = dispatch => ({
-  clearHistory: during => dispatch(clearHistory(during))
+  clearHistory: during => dispatch(clearHistory(during)),
+  showMessage: message => dispatch(showMessage(message))
 })
 
 export default connect(null, mapDispatch)(Setting)
